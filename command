@@ -3,3 +3,4 @@ source myproject/bin/activate
 
 python manage.py runserver
 --> run application with a test server
+--> run application with a test server
