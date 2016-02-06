@@ -1,6 +1,7 @@
 "use strict";
 
 $( document ).ready(function() {
+    
     $("#query").mousedown(function() {
         submit_search_query();
     });
@@ -11,20 +12,30 @@ function submit_search_query() {
     
     console.log("submitting: " + value);
     
-//    current_cursor = "progress";
+    var data = {}
+    data["text"] = value;
+    data["name"] = "James";
     
-    query(value, true);
+    query(data);
 }
 
-function query(search_term, new_query) {
+function query(json_data) {
     console.log("query")
     $.ajax({
         url: "/query",
         type: "POST",
-        data: "hi",
+        data: JSON.stringify(json_data),
         dataType: "text",
         success: function(data) {
-            console.log("success " + data)
+            console.log("success");
+            var resp = JSON.parse(data);
+            console.log(resp);
+        },
+        error: function(data) {
+            console.log("something went wrong");
+            console.log(data);
         }
     });
+    
+    console.log(JSON.stringify(json_data));
 }
