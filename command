@@ -22,3 +22,7 @@ python manage.py shell
 
 /var/lib/mongodb-mms-automation/mongodb-osx-x86_64-3.2.1/bin/mongo Jennyui-MacBook-Pro.local:27000
 --> connect to mongod via shell
+
+
+mongoimport --db <database name> --collection <collection name> --drop --file <.json file name>
+--> import json to database
