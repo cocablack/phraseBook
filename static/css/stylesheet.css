@@ -18,4 +18,7 @@ body {
 textarea {
 	outline: none;
 	resize: none;
+	border: 1px solid;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 24px;
 }
