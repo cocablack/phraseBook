@@ -1,6 +1,7 @@
 "use strict";
 
 $( document ).ready(function() {
+    
     $("#query").mousedown(function() {
         submit_search_query();
     });
@@ -12,8 +13,8 @@ function submit_search_query() {
     console.log("submitting: " + value);
     
     var data = {}
-    data["value"] = value;
-    data["sentiment"] = 10;
+    data["text"] = value;
+    data["name"] = "James";
     
     query(data);
 }
