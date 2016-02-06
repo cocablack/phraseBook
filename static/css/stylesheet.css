@@ -21,4 +21,5 @@ textarea {
 	border: 1px solid;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 24px;
+	border-radius: 10px;
 }
