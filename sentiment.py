@@ -30,9 +30,11 @@ def query(json_data):
     # print(result)
 
     db = analysis()
-    get_min_diff(json_data["text"], db)
+    return get_min_diff(json_data["text"], db)
+    
+    # [ id, "text", media, "url"]
 
-    return dumps(result[0])
+    #return dumps(result[0])
     
 def create_database(media_type):
     global result
