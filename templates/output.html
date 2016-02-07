@@ -17,9 +17,18 @@
         </div>
         <div id="phrasebook">
         	<h1>phrasebook</h1>
+        <div id="icons">
+            <center>
+            <img class="image" src="{{ url_for('static', filename='book.icon.png') }}" >
+            <img class="image" src="{{ url_for('static', filename='music.icon.png') }}">
+            <img class="image" src="{{ url_for('static', filename='movie.icon.png') }}">
+            </center>
         <div id="searchBar">
         	<center>
             <textarea placeholder =" Looking for something else?" cols = "80" rows ="7"></textarea>
+            <a href="http://google.com">
+                    <img id="searchIcon" src="{{ url_for('static', filename='search.icon.png') }}"> 
+            </a> 
        		</center>
         </div>
         <br>
