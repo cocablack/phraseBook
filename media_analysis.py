@@ -22,9 +22,15 @@ def analysis(media_type):
 				if count == 1:
 					############ TITLE #############
 					title = line
+					print(title)
 				elif count == 2:
 					############ AUTHOR #############
 					author = line
+					print(author)
+				elif count == 3:
+					############ URL LINK #############
+					link = line
+					print(link)
 				else:
 					break
 		f.close()
@@ -46,6 +52,7 @@ def sentiment_analysis(filename):
 		
 		############ SENTIMENT VALUE #############		
 		sentiment_val = int((value/num_sentences)*100)
+		print(sentiment_val)
 	f.close()
 
 def frequency_analysis(filename):

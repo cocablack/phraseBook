@@ -1,6 +1,7 @@
 import getopt				# args
 import logging				# logging    
 import sqlite3
+import os
 
 from textblob import TextBlob
     
@@ -36,19 +37,13 @@ def load_database():
 
 def create_database():
     texts = []
+    os.system("media_analysis.py music")
     
     def parse_text(url):
     
-        return (a,b,c,d)
+        return (a,b,c,d,e,f,g)
+    #texts.append((media, id, title, author, link, sentiment, common)
     
-    texts.append((5, "title_1", "author_1", 0.5))
-    texts.append((6, "title_2", "author_2", 0.6))
-    texts.append((7, "title_3", "author_3", 0.7))
-    texts.append((8, "title_4", "author_4", 0.54))
-    texts.append((9, "title_5", "author_5", 0.22))
-    texts.append((10, "title_6", "author_6", 0.32))
-    
-
     # Save our results to the database    
     
     global conn
@@ -58,8 +53,10 @@ def create_database():
         cur = conn.cursor()
             
         cur.execute("DROP TABLE IF EXISTS Texts")
-        cur.execute("CREATE TABLE Texts(Id INT, Title TEXT, Author TEXT, Sentiment REAL)")        
-        cur.executemany("INSERT INTO Texts VALUES(?, ?, ?, ?)", texts)
+        cur.execute("CREATE TABLE Texts(Media TEXT \
+            Id INT, Title TEXT, Author TEXT, Link TEXT, \
+            Sentiment INT, Common TEXT)")        
+        cur.executemany("INSERT INTO Texts VALUES(?, ?, ?, ?, ?, ?, ?)", texts)
         
         data = '\n'.join(conn.iterdump())
         
