@@ -5,7 +5,8 @@ from textblob import TextBlob
 
 #Input: Type of media to do analysis on 
 def analysis(media_type):
-	result = {}
+	# result = {}
+	result = []
 
 	path = "./media/" + media_type + "/"
 	os.chdir(path)
@@ -14,6 +15,9 @@ def analysis(media_type):
 	for file in glob.glob("*.txt"):
 		############ ID #############
 		fileID = file.split(".")[0]
+
+		entry = []
+
 		result[fileID] = []
 		result[fileID].append(media_type)
 		result[fileID].append(fileID)
@@ -42,11 +46,15 @@ def analysis(media_type):
 					break
 		f.close()
 
-		r1 = sentiment_analysis(filename)
-		result[fileID].append(r1)
-		r2 = frequency_analysis(filename)
-		result[fileID].append(r2)
+		# r1 = sentiment_analysis(filename)
+		# result[fileID].append(r1)
+		# r2 = frequency_analysis(filename)
+		# result[fileID].append(r2)
 
+		result.append(r1)
+		result.append(r2)
+
+	print(result)
 	return result
 
 
@@ -64,7 +72,7 @@ def sentiment_analysis(filename):
 		############ SENTIMENT VALUE #############		
 		sentiment_val = int((value/num_sentences)*100)
 	f.close()
-	print(sentiment_val)
+	# print(sentiment_val)
 	return sentiment_val
 
 def frequency_analysis(filename):

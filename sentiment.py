@@ -17,6 +17,7 @@ def query(json_data):
     the user
     
     """
+    load_database()
     global conn
     
     cur = conn.cursor()
@@ -39,17 +40,12 @@ def load_database():
 def create_database(media_type):
     texts = []
     result = analysis(media_type)
-    
-    def parse_text(url):
-    
-        return (a,b,c,d,e,f,g)
 
     for k,v in result.items():
         l = result[k]
         for i in range(7):
             texts.append(l[i])
 
-    
     # Save our results to the database    
     
     global conn
