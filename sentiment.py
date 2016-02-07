@@ -22,9 +22,9 @@ def query(json_data):
     """
     logging.info("Query")
     
-    print(json_data)
+    print(json_data["text"])
 
-    print(result)
+    # print(result)
 
     return "blah"
     
