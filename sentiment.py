@@ -4,6 +4,7 @@ import sqlite3
 import os
 
 from textblob import TextBlob
+from media_analysis import analysis
     
 database_path = "sentiment.db"
     
@@ -35,14 +36,19 @@ def load_database():
     if not conn:
         conn = sqlite3.connect(database_path)
 
-def create_database():
+def create_database(media_type):
     texts = []
-    os.system("media_analysis.py music")
+    result = analysis(media_type)
     
     def parse_text(url):
     
         return (a,b,c,d,e,f,g)
-    #texts.append((media, id, title, author, link, sentiment, common)
+
+    for k,v in result.items():
+        l = result[k]
+        for i in range(7):
+            texts.append(l[i])
+
     
     # Save our results to the database    
     
@@ -53,7 +59,7 @@ def create_database():
         cur = conn.cursor()
             
         cur.execute("DROP TABLE IF EXISTS Texts")
-        cur.execute("CREATE TABLE Texts(Media TEXT \
+        cur.execute("CREATE TABLE Texts(Media TEXT, \
             Id INT, Title TEXT, Author TEXT, Link TEXT, \
             Sentiment INT, Common TEXT)")        
         cur.executemany("INSERT INTO Texts VALUES(?, ?, ?, ?, ?, ?, ?)", texts)
@@ -66,7 +72,7 @@ def create_database():
         
 if __name__ == "__main__":
     logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.DEBUG)
-    create_database()
+    create_database("music")
     
     load_database()
     query(None)

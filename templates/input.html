@@ -6,14 +6,14 @@
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="/static/js/main.js"></script>
 
-        <link rel="stylesheet" href="css/stylesheet.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
 
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
         <title>phraseBook</title>
     </head>
     <body>
         <div id="about">
-            <a href="about.html"><img id="aboutus" src="./img/icon/aboutus.icon.png"></a>
+            <a href="about.html"><img id="aboutus" src="{{ url_for('static', filename='aboutus.icon.png') }}"></a>
         </div>
         <br>
         <h1>phrasebook</h1>
@@ -21,19 +21,13 @@
             <p3>Write a phrase about your day. </p3>
             <br>
             <br>
-            <a href="input.html">
-                <img class="image" src="./img/icon/book.icon.png" onclick="this.src='./img/icon/bookline.icon.png';">
-            </a>
-             <a href="input.html">
-                <img class="image" src="./img/icon/music.icon.png" onclick="this.src='./img/icon/musicline.icon.png';">
-            </a>
-             <a href="input.html">
-                <img class="image" src="./img/icon/movie.icon.png" onclick="this.src='./img/icon/movieline.icon.png';">
-            </a>
+            <img class="image" src="{{ url_for('static', filename='book.icon.png') }}" >
+            <img class="image" src="{{ url_for('static', filename='music.icon.png') }}">
+            <img class="image" src="{{ url_for('static', filename='movie.icon.png') }}">
             <div id="inputBox">
                 <textarea placeholder =" What's on your mind right now? Write it all out." cols = "53" rows = "6"></textarea>
                 <a href="http://google.com">
-                    <img id="searchIcon" src="./img/icon/search.icon.png"> 
+                    <img id="searchIcon" src="{{ url_for('static', filename='search.icon.png') }}"> 
                 </a>        
             </div>
         </center>

@@ -5,6 +5,8 @@ from textblob import TextBlob
 
 #Input: Type of media to do analysis on 
 def analysis(media_type):
+	result = {}
+
 	path = "./media/" + media_type + "/"
 	os.chdir(path)
 	currDir = os.getcwd()
@@ -12,6 +14,10 @@ def analysis(media_type):
 	for file in glob.glob("*.txt"):
 		############ ID #############
 		fileID = file.split(".")[0]
+		result[fileID] = []
+		result[fileID].append(media_type)
+		result[fileID].append(fileID)
+
 		filename = currDir + "/" + file
 
 		count = 0
@@ -23,18 +29,25 @@ def analysis(media_type):
 					############ TITLE #############
 					title = line
 					print(title)
+					result[fileID].append(title)
 				elif count == 2:
 					############ AUTHOR #############
 					author = line
+					result[fileID].append(author)
 				elif count == 3:
 					############ URL LINK #############
 					link = line
+					result[fileID].append(link)
 				else:
 					break
 		f.close()
 
-		sentiment_analysis(filename)
-		frequency_analysis(filename)
+		r1 = sentiment_analysis(filename)
+		result[fileID].append(r1)
+		r2 = frequency_analysis(filename)
+		result[fileID].append(r2)
+
+	return result
 
 
 def sentiment_analysis(filename):
@@ -50,8 +63,9 @@ def sentiment_analysis(filename):
 		
 		############ SENTIMENT VALUE #############		
 		sentiment_val = int((value/num_sentences)*100)
-		print(sentiment_val)
 	f.close()
+	print(sentiment_val)
+	return sentiment_val
 
 def frequency_analysis(filename):
 	with open(filename, 'r') as f:
@@ -95,8 +109,10 @@ def frequency_analysis(filename):
 		print(most_freq)
 
 	f.close()
+	return most_freq
 
 if __name__ == "__main__":
 	arg = sys.argv[1]
-	analysis(arg)
+	result = analysis(arg)
+	#print(result)
 

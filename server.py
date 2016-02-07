@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from json import dumps
 
 import os
@@ -8,6 +8,10 @@ import sentiment
 
 app = Flask(__name__, static_url_path='/static')
 app.debug = True
+
+@app.route('/', methods=['GET'])
+def root():
+	return render_template('input.html')
 
 @app.route('/query', methods=['GET', 'POST'])
 def query():
