@@ -136,13 +136,11 @@ def get_min_diff(text, result):
 
 	min_diff = 1000;
 	min_sent = None
-	# user_sentiment = text_analysis(text)
 
-	user_sentiment = random.randint(-50, 50)
+	user_sentiment = text_analysis(text)
 
-	print(text_analysis("happy"))
-
-	print("SENTIMENT" + str(user_sentiment))
+	print("ACTUAL SENTIMENT" + str(text_analysis("evil")))
+	
 	min_entry = None
 	for entry in result:
 		cur_sentiment = entry[5]
