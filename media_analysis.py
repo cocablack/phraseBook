@@ -26,11 +26,9 @@ def analysis(media_type):
 				elif count == 2:
 					############ AUTHOR #############
 					author = line
-					print(author)
 				elif count == 3:
 					############ URL LINK #############
 					link = line
-					print(link)
 				else:
 					break
 		f.close()
@@ -94,6 +92,7 @@ def frequency_analysis(filename):
 
 		############ MOST FREQUENT WORD #############					
 		most_freq = freq_word	
+		print(most_freq)
 
 	f.close()
 
