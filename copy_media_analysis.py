@@ -135,7 +135,7 @@ def get_min_diff(text, result):
 	user_sentiment = text_analysis(text)
 	for k,v in result.items():
 		val = user_sentiment - k
-		if abs(val) < diff:
+		if abs(val) < min_diff:
 			min_diff = abs(val)
 			min_media = result[k]
 	return result[k]
