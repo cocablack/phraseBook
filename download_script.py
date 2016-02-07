@@ -15,7 +15,8 @@ def download():
 	
 	#fetch book from url
 	for number in l:
-		target_url = "http://www.gutenberg.org/cache/epub/" + str(number) + "/pg" + str(number) + ".txt"
+		target_url = "http://www.gutenberg.org/cache/epub/" + str(number) + \
+		"/pg" + str(number) + ".txt"
 		data = urllib2.urlopen(target_url) 
 		for line in data: 
 			print line
