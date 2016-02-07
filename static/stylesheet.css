@@ -32,6 +32,7 @@ body {
 
 textarea {
 	resize: none;
+	float: left;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 20px;
 	border-radius: 3px;
@@ -48,6 +49,7 @@ a {
 	background-color: gray;
 	width: 625px;
 	height: 144px;
+
 }
 
 #outputBox {
@@ -73,6 +75,12 @@ a {
 	display: none;
 	z-index: 999;
 
+}
+
+#sentiment_text {
+	color: white;
+	font-size: 60px;
+	font-family: 'Open Sans', sans-serif;
 }
 
 #aboutus {

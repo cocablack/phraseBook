@@ -35,12 +35,12 @@ function query(json_data) {
 
             $("#inputBox").css("display", "none");
 
-            var author = resp[2 ];
+            // var author = resp[2];
 
             console.log(resp)
-            console.log(author)
+            // console.log(author)
 
-            $("#sentiment_text").text( author );
+            $("#sentiment_text").text( resp );
             $("#outputBox").css("display", "block");
 
 
