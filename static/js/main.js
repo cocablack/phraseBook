@@ -35,14 +35,22 @@ function query(json_data) {
 
             $("#inputBox").css("display", "none");
 
-            var author = resp[2];
-            var something = resp[3];
+            var author = resp[3];
+            var title = resp[2];
             var url = resp[4];
+            var sentiment = resp[5];
+            var sentiment_word = resp[6];
 
-            console.log(resp)
+            console.log(resp);
             // console.log(author)
 
-            $("#sentiment_text").text( url );
+            $("#sentiment_text").text( "Sentiment Value: " + sentiment );
+            $("#title_text").text("Title: "+ title );
+            $("#author_text").text("Author: "+ author );
+
+            // $("#url_text").text( "" );
+            $("#url_link").attr("href", url);
+
             $("#outputBox").css("display", "block");
 
 

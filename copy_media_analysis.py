@@ -130,9 +130,13 @@ def frequency_analysis(filename):
 
 #Input: string text user typed in, dictionary of sentiment value and url
 def get_min_diff(text, result):
+
+	print("GETTING MIN DIFF")
+
 	min_diff = 1000;
 	min_media = None
 	user_sentiment = text_analysis(text)
+	# print("SENTIMENT" + user_sentiment)
 	cur_entry = None
 	for entry in result:
 		cur_sentiment = entry[5]
