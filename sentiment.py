@@ -5,7 +5,8 @@ import os
 from json import dumps
 
 from textblob import TextBlob
-from media_analysis import analysis
+from copy_media_analysis import analysis
+from copy_media_analysis import get_min_diff
     
 database_path = "sentiment.db"
     
@@ -16,6 +17,7 @@ result = None
 logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.DEBUG)
 
 def query(json_data):
+    #from user to database
     """ TODO
     Queries for book recommendations based off of the json_data we receive from
     the user
@@ -27,11 +29,14 @@ def query(json_data):
 
     # print(result)
 
+    db = analysis()
+    get_min_diff(json_data["text"], db)
+
     return dumps(result[0])
     
 def create_database(media_type):
     global result
-    result = analysis(media_type) 
+    # result = analysis(media_type) 
 
     # global conn
     # conn = sqlite3.connect(':memory:')
@@ -47,4 +52,8 @@ def create_database(media_type):
 if __name__ == "__main__":
     # create_database("music")
     # query(None)
+
+ 
+
+
     logging.info("Exiting")

@@ -3,53 +3,67 @@ import string
 import collections
 from textblob import TextBlob
 
-#Input: Type of media to do analysis on 
-def analysis(media_type):
-	# result = {}
-	result = []
+def text_analysis(text):
+	blob = TextBlob(text)
+	value = 0
+	num_sentences = 0
+	for sentence in blob.sentences:
+		value += sentence.sentiment.polarity
+		num_sentences = num_sentences + 1	
+	############ SENTIMENT VALUE #############		
+	sentiment_val = int((value/num_sentences)*100)
+	return sentiment_val
 
-	path = "./media/" + media_type + "/"
+#Input: Type of media to do analysis on 
+# def analysis(media_type):
+def analysis():
+
+	result = {}
+
+	# result = []
+
+	#for media_type in media_list:
+	path = "mashed_media" 
 	os.chdir(path)
 	currDir = os.getcwd()
-	oldDir = os.getcwd()
 
 	for file in glob.glob("*.txt"):
 		############ ID #############
-		fileID = file.split(".")[0]
-
-		title = "default_title"
-		author = "default_author"
+		# fileID = file.split(".")[0]
 		link = "default_link"
+
+		# title = "default_title"
+		# author = "default_author"
+		# link = "default_link"
 
 		filename = currDir + "/" + file
 
 		count = 0
+	
 		with open(filename, 'r') as f:
 			for line in f:
 				count = count + 1
-				if count == 1:
-					############ TITLE #############
-					title = line
-				elif count == 2:
-					############ AUTHOR #############
-					author = line
-				elif count == 3:
-					############ URL LINK #############
+					# if count == 1:
+					# 	############ TITLE #############
+					# 	title = line
+					# elif count == 2:
+					# 	############ AUTHOR #############
+					# 	author = line
+					# elif count == 3:
+				if count == 3:
+						############ URL LINK #############
 					link = line
-				else:
-					break
 
-		r1 = sentiment_analysis(filename)
-		r2 = frequency_analysis(filename)
+		r = sentiment_analysis(filename)
+		result[r] = link #(k,v) = (sentiment val, link)
 
-		entry = [ media_type, fileID, title, author, link, r1, r2 ]
-		result.append(entry)
+		
+			# r2 = frequency_analysis(filename)
 
-		print(entry)
+			# entry = [ media_type, fileID, title, author, line, r1, r2 ]
+			# result.append(entry)
 
-	print("OLD DIR")
-	print(oldDir)
-	os.chdir("../..")
+			# print(entry)
 	return result
 
 
@@ -114,8 +128,27 @@ def frequency_analysis(filename):
 	f.close()
 	return most_freq
 
+#Input: string text user typed in, dictionary of sentiment value and url
+def get_min_diff(text, result):
+	min_diff = 1000;
+	min_media = None
+	user_sentiment = text_analysis(text)
+	for k,v in result.items():
+		val = user_sentiment - k
+		if abs(val) < diff:
+			min_diff = abs(val)
+			min_media = result[k]
+	return result[k]
+
+
+
 if __name__ == "__main__":
-	arg = sys.argv[1]
-	result = analysis(arg)
+	# arg = sys.argv[1]
+
+	result = analysis()
 	print(result)
+
+
+
+	
 
