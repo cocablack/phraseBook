@@ -6,98 +6,97 @@
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="/static/js/main.js"></script>
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet2.css') }}">
+        <link rel="stylesheet" type="text/css" href="../static/stylesheet2.css">
 
         <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
         <title>phraseBook</title>
     </head>
     <body>
         <div id="about">
-            <a href="about.html"><img id="aboutus" src="{{ url_for('static', filename='aboutus.icon.png') }}"></a>
+            <a href="about.html"><img id="aboutus" src="../static/aboutus.icon2.png"></a>
         </div>
         <div id="phrasebook">
         	<h1>phrasebook</h1>
-        <div id="icons">
-            <center>
-            <img class="image" src="{{ url_for('static', filename='book.icon.png') }}" >
-            <img class="image" src="{{ url_for('static', filename='music.icon.png') }}">
-            <img class="image" src="{{ url_for('static', filename='movie.icon.png') }}">
-            </center>
-        <div id="searchBar">
-        	<center>
-            <textarea placeholder =" Looking for something else?" cols = "80" rows ="7"></textarea>
-            <a href="http://google.com">
-                    <img id="searchIcon" src="{{ url_for('static', filename='search.icon.png') }}"> 
-            </a> 
-            <br>
-            <br>
-            <br>
-            <p4>Your sentiment score is: </p4>
-            <hr>
-            <br>
-            <br>
-            <p4>Title1</p4>
-            <!-- <br>
-            <p4>Author1</p4>
-            <br>
-            <p4>Link1</p4>
-            <br>
-            <p4>Match1</p4>
-            <br>
-            <p4>Score1</p4>
-            <hr>
-            <br>
-            <br>
-            <p4>Title2</p4>
-            <br>
-            <p4>Author2</p4>
-            <br>
-            <p4>Link2</p4>
-            <br>
-            <p4>Match2</p4>
-            <br>
-            <p4>Score2</p4>
-            <hr>
-            <br>
-            <br>
-            <p4>Title3</p4>
-            <br>
-            <p4>Author3</p4>
-            <br>
-            <p4>Link3</p4>
-            <br>
-            <p4>Match3</p4>
-            <br>
-            <p4>Score3</p4>
-            <hr>
-            <br>
-            <br>
-            <p4>Title4</p4>
-            <br>
-            <p4>Author4</p4>
-            <br>
-            <p4>Link4</p4>
-            <br>
-            <p4>Match4</p4>
-            <br>
-            <p4>Score4</p4>
-            <hr>
-            <br>
-            <br>
-            <p4>Title5</p4>
-            <br>
-            <p4>Author5</p4>
-            <br>
-            <p4>Link5</p4>
-            <br>
-            <p4>Match5</p4>
-            <br>
-            <p4>Score5</p4>
-            <br>
-            <br>
-            <-->
-       		
         </div>
+
+        <center>
+            <div id="searchBar">
+            	
+                <textarea placeholder =" Looking for something else?" cols = "80" rows ="7"></textarea>
+                
+                <a href="http://google.com">
+                    <img src="../static/search.icon2.png"> 
+                </a> 
+                <br>
+                <br>
+                <br>
+                <p4>Your sentiment score is: </p4>
+                <hr>
+                <br>
+                <br>
+                <p4>Title1</p4>
+                <!-- <br>
+                <p4>Author1</p4>
+                <br>
+                <p4>Link1</p4>
+                <br>
+                <p4>Match1</p4>
+                <br>
+                <p4>Score1</p4>
+                <hr>
+                <br>
+                <br>
+                <p4>Title2</p4>
+                <br>
+                <p4>Author2</p4>
+                <br>
+                <p4>Link2</p4>
+                <br>
+                <p4>Match2</p4>
+                <br>
+                <p4>Score2</p4>
+                <hr>
+                <br>
+                <br>
+                <p4>Title3</p4>
+                <br>
+                <p4>Author3</p4>
+                <br>
+                <p4>Link3</p4>
+                <br>
+                <p4>Match3</p4>
+                <br>
+                <p4>Score3</p4>
+                <hr>
+                <br>
+                <br>
+                <p4>Title4</p4>
+                <br>
+                <p4>Author4</p4>
+                <br>
+                <p4>Link4</p4>
+                <br>
+                <p4>Match4</p4>
+                <br>
+                <p4>Score4</p4>
+                <hr>
+                <br>
+                <br>
+                <p4>Title5</p4>
+                <br>
+                <p4>Author5</p4>
+                <br>
+                <p4>Link5</p4>
+                <br>
+                <p4>Match5</p4>
+                <br>
+                <p4>Score5</p4>
+                <br>
+                <br>
+                <-->
+           		
+            </div>
+        </center>
         <br>
         
     </body>
