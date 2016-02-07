@@ -5,5 +5,5 @@ INSERT INTO "Texts" VALUES(6,'title_2','author_2',0.6);
 INSERT INTO "Texts" VALUES(7,'title_3','author_3',0.7);
 INSERT INTO "Texts" VALUES(8,'title_4','author_4',0.54);
 INSERT INTO "Texts" VALUES(9,'title_5','author_5',0.22);
-INSERT INTO "Texts" VALUES(9,'title_5','author_5',0.22);
+INSERT INTO "Texts" VALUES(10,'title_5','author_5',0.32);
 COMMIT;
