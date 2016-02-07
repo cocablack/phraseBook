@@ -16,45 +16,34 @@ def analysis(media_type):
 		############ ID #############
 		fileID = file.split(".")[0]
 
-		entry = []
-
-		result[fileID] = []
-		result[fileID].append(media_type)
-		result[fileID].append(fileID)
+		title = "default_title"
+		author = "default_author"
+		link = "default_link"
 
 		filename = currDir + "/" + file
 
 		count = 0
-		f = open(filename, 'r')
 		with open(filename, 'r') as f:
 			for line in f:
 				count = count + 1
 				if count == 1:
 					############ TITLE #############
 					title = line
-					print(title)
-					result[fileID].append(title)
 				elif count == 2:
 					############ AUTHOR #############
 					author = line
-					result[fileID].append(author)
 				elif count == 3:
 					############ URL LINK #############
 					link = line
-					result[fileID].append(link)
 				else:
 					break
-		f.close()
 
-		# r1 = sentiment_analysis(filename)
-		# result[fileID].append(r1)
-		# r2 = frequency_analysis(filename)
-		# result[fileID].append(r2)
+		r1 = sentiment_analysis(filename)
+		r2 = frequency_analysis(filename)
 
-		result.append(r1)
-		result.append(r2)
+		entry = [ media_type, fileID, title, author, line, r1, r2 ]
+		result.append(entry)
 
-	print(result)
 	return result
 
 
@@ -114,7 +103,7 @@ def frequency_analysis(filename):
 
 		############ MOST FREQUENT WORD #############					
 		most_freq = freq_word	
-		print(most_freq)
+		# print(most_freq)
 
 	f.close()
 	return most_freq

@@ -1,4 +1,0 @@
-BEGIN TRANSACTION;
-
-CREATE TABLE Texts(Media TEXT, Id INT, Title TEXT, Author TEXT, Link TEXT, Sentiment INT, Common TEXT);
-COMMIT;

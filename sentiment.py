@@ -38,16 +38,8 @@ def load_database():
         conn = sqlite3.connect(database_path)
 
 def create_database(media_type):
-    texts = []
-    result = analysis(media_type)
+    result = analysis(media_type) 
 
-    for k,v in result.items():
-        l = result[k]
-        for i in range(7):
-            texts.append(l[i])
-
-    # Save our results to the database    
-    
     global conn
     
     conn = sqlite3.connect(':memory:')
@@ -58,18 +50,27 @@ def create_database(media_type):
         cur.execute("CREATE TABLE Texts(Media TEXT, \
             Id INT, Title TEXT, Author TEXT, Link TEXT, \
             Sentiment INT, Common TEXT)")        
-        cur.executemany("INSERT INTO Texts VALUES(?, ?, ?, ?, ?, ?, ?)", texts)
+
+        cur.executemany("INSERT INTO Texts VALUES(?, ?, ?, ?, ?, ?, ?)", result)
         
         data = '\n'.join(conn.iterdump())
         
         logging.info("Writing to Database %s", database_path)
-        with open(database_path, 'w') as f:
-            f.write(data)
-        
+
+
+        with open("hi", 'w+') as f:
+        # with open(database_path, 'w+') as f:
+            # f.write(data)
+            result = f.write("hello world")
+            print(result)
+
+        logging.info("Finished writing to Database")
+
 if __name__ == "__main__":
     logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.DEBUG)
     create_database("music")
     
     load_database()
     query(None)
+
     logging.info("Exiting")
