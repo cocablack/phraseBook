@@ -26,4 +26,4 @@ def query():
     
 if __name__ == "__main__":
     app.run(host="localhost", port=8080)
-    sentiment.load_database()
+    create_database("music")

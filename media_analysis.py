@@ -44,6 +44,8 @@ def analysis(media_type):
 		entry = [ media_type, fileID, title, author, line, r1, r2 ]
 		result.append(entry)
 
+		print(entry)
+
 	return result
 
 
