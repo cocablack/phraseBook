@@ -32,7 +32,6 @@ body {
 
 textarea {
 	resize: none;
-	float: left;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 20px;
 	border-radius: 3px;
