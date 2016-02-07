@@ -2,6 +2,7 @@ import getopt				# args
 import logging				# logging    
 import sqlite3
 import os
+from json import dumps
 
 from textblob import TextBlob
 from media_analysis import analysis
@@ -26,7 +27,7 @@ def query(json_data):
 
     # print(result)
 
-    return "blah"
+    return dumps(result[0])
     
 def create_database(media_type):
     global result
