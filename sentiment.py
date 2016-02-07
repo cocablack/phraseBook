@@ -5,9 +5,11 @@ import os
 from json import dumps
 
 from textblob import TextBlob
-from copy_media_analysis import analysis
+# from copy_media_analysis import analysis
 from copy_media_analysis import get_min_diff
     
+from media_analysis import analysis
+
 database_path = "sentiment.db"
     
 conn = None
@@ -27,18 +29,11 @@ def query(json_data):
     
     print(json_data["text"])
 
-    # print(result)
-
-    db = analysis()
-    return get_min_diff(json_data["text"], db)
-    
-    # [ id, "text", media, "url"]
-
-    #return dumps(result[0])
+    return dumps(get_min_diff(json_data["text"], result))
     
 def create_database(media_type):
     global result
-    # result = analysis(media_type) 
+    result = analysis(media_type)
 
     # global conn
     # conn = sqlite3.connect(':memory:')
@@ -54,8 +49,4 @@ def create_database(media_type):
 if __name__ == "__main__":
     # create_database("music")
     # query(None)
-
- 
-
-
     logging.info("Exiting")

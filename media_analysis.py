@@ -47,8 +47,8 @@ def analysis(media_type):
 
 		print(entry)
 
-	print("OLD DIR")
-	print(oldDir)
+	# print("OLD DIR")
+	# print(oldDir)
 	os.chdir("../..")
 	return result
 
