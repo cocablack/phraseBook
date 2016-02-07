@@ -14,7 +14,6 @@ function submit_search_query() {
     
     var data = {}
     data["text"] = value;
-    data["name"] = "James";
     
     query(data);
 }

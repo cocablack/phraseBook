@@ -10,7 +10,10 @@ database_path = "sentiment.db"
     
 conn = None
 cur = None
-    
+result = None
+
+logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.DEBUG)
+
 def query(json_data):
     """ TODO
     Queries for book recommendations based off of the json_data we receive from
@@ -18,41 +21,29 @@ def query(json_data):
     
     """
     logging.info("Query")
-    global conn
     
-    cur = conn.cursor()
-    # cur.execute("SELECT * FROM Texts WHERE Sentiment=22")
+    print(json_data)
 
-    cur.execute("SELECT * FROM Texts")
+    print(result)
 
-    rows = cur.fetchall()
-    
-    for row in rows:
-        print(row)
-    
-    return dumps(row)
+    return "blah"
     
 def create_database(media_type):
+    global result
     result = analysis(media_type) 
 
-    global conn
-    
-    conn = sqlite3.connect(':memory:')
-
-    cur = conn.cursor()
+    # global conn
+    # conn = sqlite3.connect(':memory:')
+    # cur = conn.cursor()
         
-    cur.execute("DROP TABLE IF EXISTS Texts")
-    cur.execute("CREATE TABLE Texts(Media TEXT, \
-        Id INT, Title TEXT, Author TEXT, Link TEXT, \
-        Sentiment INT, Common TEXT)")        
+    # cur.execute("DROP TABLE IF EXISTS Texts")
+    # cur.execute("CREATE TABLE Texts(Media TEXT, \
+    #     Id INT, Title TEXT, Author TEXT, Link TEXT, \
+    #     Sentiment INT, Common TEXT)")        
 
-    cur.executemany("INSERT INTO Texts VALUES(?, ?, ?, ?, ?, ?, ?)", result)
-        
+    # cur.executemany("INSERT INTO Texts VALUES(?, ?, ?, ?, ?, ?, ?)", result)
 
 if __name__ == "__main__":
-    logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.DEBUG)
-    create_database("music")
-    
-    query(None)
-
+    # create_database("music")
+    # query(None)
     logging.info("Exiting")

@@ -11,6 +11,7 @@ def analysis(media_type):
 	path = "./media/" + media_type + "/"
 	os.chdir(path)
 	currDir = os.getcwd()
+	oldDir = os.getcwd()
 
 	for file in glob.glob("*.txt"):
 		############ ID #############
@@ -46,6 +47,9 @@ def analysis(media_type):
 
 		print(entry)
 
+	print("OLD DIR")
+	print(oldDir)
+	os.chdir("../..")
 	return result
 
 
