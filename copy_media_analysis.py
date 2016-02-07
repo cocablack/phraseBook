@@ -2,6 +2,7 @@ import os, glob, sys
 import string
 import collections
 from textblob import TextBlob
+import random
 
 def text_analysis(text):
 	blob = TextBlob(text)
@@ -134,20 +135,25 @@ def get_min_diff(text, result):
 	print("GETTING MIN DIFF")
 
 	min_diff = 1000;
-	min_media = None
-	user_sentiment = text_analysis(text)
-	# print("SENTIMENT" + user_sentiment)
-	cur_entry = None
+	min_sent = None
+	# user_sentiment = text_analysis(text)
+
+	user_sentiment = random.randint(-50, 50)
+
+	print(text_analysis("happy"))
+
+	print("SENTIMENT" + str(user_sentiment))
+	min_entry = None
 	for entry in result:
 		cur_sentiment = entry[5]
 		val = user_sentiment - cur_sentiment
 		if abs(val) < min_diff:
 			min_diff = abs(val)
-			min_media = cur_sentiment
-			cur_entry = entry
+			min_sent = cur_sentiment
+			min_entry = entry
 	print("GET MIN DIFF")
 	print(entry)
-	return entry
+	return min_entry
 
 
 

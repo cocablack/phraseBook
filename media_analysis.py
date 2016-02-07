@@ -45,7 +45,7 @@ def analysis(media_type):
 		entry = [ media_type, fileID, title, author, link, r1, r2 ]
 		result.append(entry)
 
-		print(entry)
+		print(r1)
 
 	# print("OLD DIR")
 	# print(oldDir)
