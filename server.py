@@ -21,5 +21,4 @@ def query():
     return dumps(result)
     
 if __name__ == "__main__":
-    sentiment.load_database()
     app.run(host="localhost", port=8080)
