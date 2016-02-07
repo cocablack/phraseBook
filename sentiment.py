@@ -1,9 +1,10 @@
 import getopt				# args
 import logging				# logging    
 import sqlite3
+
+from textblob import TextBlob
     
 database_path = "sentiment.db"
-links_path = "links.txt"
     
 conn = None
 cur = None
@@ -29,27 +30,26 @@ def query(json_data):
     return result
     
 def load_database():
-    """ TODO
-    returns a dictionary/sql database
-    
-    """   
     global conn
     if not conn:
         conn = sqlite3.connect(database_path)
 
-def create_database(inputfile):
-    """ TODO
-    creates a database with links to a text on every line
+def create_database():
+    texts = []
     
-    """
-    texts = (
-        (5, "title_1", "author_1", 0.5),
-        (6, "title_2", "author_2", 0.6),
-        (7, "title_3", "author_3", 0.7),
-        (8, "title_4", "author_4", 0.54),
-        (9, "title_5", "author_5", 0.22),
-        (9, "title_5", "author_5", 0.22)
-    )
+    def parse_text(url):
+    
+        return (a,b,c,d)
+    
+    texts.append((5, "title_1", "author_1", 0.5))
+    texts.append((6, "title_2", "author_2", 0.6))
+    texts.append((7, "title_3", "author_3", 0.7))
+    texts.append((8, "title_4", "author_4", 0.54))
+    texts.append((9, "title_5", "author_5", 0.22))
+    texts.append((10, "title_6", "author_6", 0.32))
+    
+
+    # Save our results to the database    
     
     global conn
     
@@ -69,7 +69,7 @@ def create_database(inputfile):
         
 if __name__ == "__main__":
     logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.DEBUG)
-    create_database(links_path)
+    create_database()
     
     load_database()
     query(None)
