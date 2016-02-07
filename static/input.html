@@ -12,29 +12,32 @@
         <title>phraseBook</title>
     </head>
     <body>
-        <br>
-        <br>
+        <div id="about">
+            <a href="about.html"><img id="aboutus" src="./img/icon/aboutus.icon.png"></a>
+        </div>
         <br>
         <h1>phrasebook</h1>
         <center> 
             <p3>Write a phrase about your day. </p3>
             <br>
             <br>
-            <img class="image" src="./img/icon/book.icon.png">
-            <img class="image" src="./img/icon/music.icon.png">
-            <img class="image" src="./img/icon/movie.icon.png">
+            <a href="input.html">
+                <img class="image" src="./img/icon/book.icon.png" onclick="this.src='./img/icon/bookline.icon.png';">
+            </a>
+             <a href="input.html">
+                <img class="image" src="./img/icon/music.icon.png" onclick="this.src='./img/icon/musicline.icon.png';">
+            </a>
+             <a href="input.html">
+                <img class="image" src="./img/icon/movie.icon.png" onclick="this.src='./img/icon/movieline.icon.png';">
+            </a>
             <div id="inputBox">
-                <textarea placeholder ="What's on your mind right now? Write it all out." cols = "53" rows = "6"></textarea>
+                <textarea placeholder =" What's on your mind right now? Write it all out." cols = "53" rows = "6"></textarea>
                 <a href="http://google.com">
                     <img id="searchIcon" src="./img/icon/search.icon.png"> 
                 </a>        
             </div>
         </center>
-
         <br>
-        <center>
-            <a href="about.html">About Us</a>
-        </center>
         
     </body>
 </html>

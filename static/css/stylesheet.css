@@ -34,7 +34,7 @@ textarea {
 	resize: none;
 	float: left;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 23px;
+	font-size: 20px;
 	border-radius: 3px;
 }
 
@@ -43,10 +43,12 @@ a {
 }
 
 #inputBox {
+	border: 0px none;
+	border-radius: 3px;
 	text-align: center;
 	background-color: gray;
-	width: 700px;
-	height: 161px;
+	width: 625px;
+	height: 144px;
 }
 
 .image {
@@ -57,8 +59,18 @@ a {
 
 #searchIcon {
 	position: absolute;
-	width: 3%;
+	width: 2.5%;
 	height: auto;
 	margin-top: 63px;
-	float: left;
+	margin-left: -17px;
+}
+
+#aboutus {
+	width: 5%;
+	height: auto;
+}
+
+#about {
+	text-align: right;
+	padding-right: 10px;
 }
