@@ -1,27 +1,38 @@
-import urllib2  # the lib that handles the url stuff
+import urllib.request  			# the lib that handles the url stuff
 from random import randint
+import logging					# logging  
+import time
+
+root = "books/"
 
 def download():
-	#download 100 random unique books
-	l = []
-	#populate 100 book list to download
-	while len(l) != 100:
+	# download 100 random unique books
+	l = [45316]
+	# populate 100 book list to download
+	while len(l) != 10:
 		random = randint(10,51137)
 		if not random in l:
 			l.append(random)
 
-	# for number in l:
-	# 	print number
-	
-	#fetch book from url
+	# fetch book from url
 	for number in l:
-		target_url = "http://www.gutenberg.org/cache/epub/" + str(number) + \
-		"/pg" + str(number) + ".txt"
-		data = urllib2.urlopen(target_url) 
-		for line in data: 
-			print line
+		logging.info("Downloading " + str(number))
+
+		filename = "pg{0}.txt".format(number)
+		target_url = "http://www.gutenberg.org/cache/epub/{0}/{1}".format(number, filename)
+		
+		logging.info("URL: " + target_url)
+		try:
+			data = urllib.request.urlopen(target_url)
+		except urllib.error.HTTPError:
+			logging.info("{0} could not be found".format(number))
+			continue;
+		
+		with open(root + filename, "w+") as f:
+			for line in data: 
+				print(line, file=f)
+		time.sleep(5)
 
 if __name__ == "__main__":
-    download()
-		
-
+	logging.basicConfig(format='%(levelname)s:\t%(message)s', level=logging.DEBUG)
+	download()
